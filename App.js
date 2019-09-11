@@ -30,7 +30,12 @@ handTrack.startVideo(video).then(status => {
 
 function runDetection() {
     model.detect(video).then(predictions => {
-        console.log(predictions)
+        if (predictions.length !== 0) {
+            let hand1 = predictions[0].bbox;
+            let x = hand1[0];
+            let y = hand1[1];
+            console.log(x)
+        }
     });
 }
 
